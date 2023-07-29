@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.products {
+  color: rgb(13, 14, 14);
+  padding-bottom: 50px;
+  margin-top: 50px;
+  width: 100%;
+  background: #f5f6fa;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 38px;
+  margin-left: 43%;
+}
+.menu-btn {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  margin-left: 3%;
+  top: 21%;
+
+  cursor: pointer;
+}
+.btn {
+  position: absolute;
+  top: 16%;
+  left: 45px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  background: #fffdfd;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: left 0.4s ease;
+}
+.btn.click {
+  left: 360px;
+}
+.btn span {
+  color: rgb(0, 0, 0);
+  font-size: 28px;
+  line-height: 45px;
+}
+.btn.click span:before {
+  content: "\f00d";
+}
+.sidebar {
+  position: fixed;
+  width: 350px;
+  height: 100%;
+  left: -350px;
+  background: #fbfbfb;
+  transition: left 0.4s ease;
+}
+.sidebar.show {
+  left: 0px;
+}
+.sidebar .text {
+  color: rgb(8, 8, 8);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 65px;
+  padding-left: 20px;
+  padding-top: 25px;
+  /* text-align: center; */
+  background: #ffffff;
+  letter-spacing: 1px;
+}
+.bar nav ul {
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+}
+.bar nav ul li {
+  line-height: 60px;
+  border-top: 1px solid rgba(255, 255, 255);
+}
+.bar nav ul li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255);
+}
+.bar nav ul li a {
+  position: relative;
+  color: rgb(3, 3, 3);
+  text-decoration: none;
+  font-size: 18px;
+  padding-left: 20px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  border-left: 3px solid transparent;
+}
+.bar nav ul li.active a {
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  /* border-left-color: cyan; */
+}
+/* nav ul li a:hover {
+  background: #faf7f7;
+} */
+.bar nav ul ul {
+  position: static;
+  display: none;
+}
+
+.bar nav ul .feat-show.show {
+  display: block;
+}
+.bar nav ul .serv-show.show1 {
+  display: block;
+}
+.bar nav ul .size-show.show2 {
+  display: block;
+}
+.bar nav ul ul li {
+  line-height: 32px;
+  border-top: none;
+}
+.bar nav ul ul li a {
+  font-size: 17px;
+  color: #060606;
+  padding-left: 80px;
+}
+.bar nav ul li.active ul li a {
+  color: #0e0e0e;
+  background: #f3f3f3;
+  border-left-color: transparent;
+}
+.bar nav ul ul li a:hover {
+  color: rgb(243, 243, 243) !important;
+  background: #1e1e1e !important;
+}
+.bar nav ul li a span {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: transform 0.4s;
+}
+.bar nav ul li a span.rotate {
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #202020;
+  z-index: -1;
+  text-align: center;
+}
+.content .header {
+  font-size: 45px;
+  font-weight: 600;
+}
+.content p {
+  font-size: 30px;
+  font-weight: 500;
+}
+.price-input {
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+.price-input .field {
+  display: flex;
+  width: 40%;
+  height: 45px;
+  align-items: center;
+}
+.field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 19px;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price-input .separator {
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  height: 5px;
+  position: relative;
+  background: #b1adad;
+  border-radius: 5px;
+}
+.slider .progress {
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17a2b8;
+}
+.range-input {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.input {
+  accent-color: red;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #51a0aa;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #51a0aa;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+.list {
+  padding-left: 10%;
+}
+.list-price {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.side-bar {
+  background: #1b1a1b;
+  backdrop-filter: blur(15px);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  overflow-y: auto;
+  transition: 0.6s ease;
+  transition-property: left;
+}
+.side-bar::-webkit-scrollbar {
+  width: 0px;
+}
+.side-bar.active {
+  left: 0;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 20px;
+  /* width: 1170px; */
+  /* margin: 0 auto; */
+  border: 2px solid rgb(245, 244, 246);
+}
+figure {
+  width: 32%;
+  /* float: left; */
+  /* border: 2px solid rebeccapurple; */
+  margin: 0;
+}
+figcaption {
+  text-align: center;
+}
+figcaption h2 {
+  margin: 15px 0;
+}
+figcaption p {
+  width: 90%;
+  margin: auto;
+  font-size: 18px;
+  font-family: roboto;
+  letter-spacing: 2px;
+}
+figcaption a {
+  background: #a0c4e2;
+  text-decoration: none;
+  color: #fff;
+
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 30px;
+  /* letter-spacing: 3px; */
+}
+.hover-animation {
+  position: relative;
+  height: 350px;
+  width: 350px;
+  margin: 10% auto 0;
+  color: #fff;
+  /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); */
+}
+
+.hover-animation img {
+  position: absolute;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  /* -webkit-transition: opacity 1s ease-in-out;
+      -moz-transition: opacity 1s ease-in-out;
+      -ms-transition: opacity 1s ease-in-out;
+      -o-transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease-in-out; */
+}
+.hover-animation img.img-front:hover {
+  opacity: 0;
+  cursor: pointer;
+}
+
+#myElement {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
