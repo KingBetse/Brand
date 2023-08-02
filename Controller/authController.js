@@ -12,15 +12,28 @@ const signToken = (id) => {
   });
 };
 exports.signUp = catchAsyn(async (req, res, next) => {
-  const user = userModel.create(req.body);
-  const token = signToken(user._id);
-  res.status(200).json({
-    status: "success",
-    data: {
-      user,
-      token,
+  const user = await userModel.create({
+    name: {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+    },
+    email: req.body.email,
+    password: req.body.password,
+    role: req.body.role,
+    address: {
+      city: req.body.city,
     },
   });
+  if (user) {
+    const token = signToken(user._id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        user,
+        token,
+      },
+    });
+  }
 });
 exports.logIn = catchAsyn(async (req, res, next) => {
   const { email, password } = req.body;
@@ -32,7 +45,6 @@ exports.logIn = catchAsyn(async (req, res, next) => {
     });
   }
   const user = await userModel.findOne({ email });
-  // console.log(user);
 
   if (!user || !(user.password === password)) {
     return await res.status(404).json({
