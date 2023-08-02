@@ -102,7 +102,23 @@ header {
 .head nav ul li a:hover:after {
   width: 100%;
 }
-
+.head .sign {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  top: 8%;
+  right: 2%;
+}
+.head .sign li {
+  font-size: 20px;
+  font-family: "Lucida Sans";
+  padding: 5px;
+  /* border: 2px solid;
+  background: #aed1e6;
+  border-radius: 10px;
+  color: #2b2a2a; */
+}
 .head nav .active:after {
   content: "";
   position: absolute;
