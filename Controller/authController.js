@@ -5,12 +5,23 @@ const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("./../util/sendEmail");
 const crypto = require("crypto");
+// const { use } = require("../Router/userRouter");
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES,
   });
 };
-
+exports.signUp = catchAsyn(async (req, res, next) => {
+  const user = userModel.create(req.body);
+  const token = signToken(user._id);
+  res.status(200).json({
+    status: "success",
+    data: {
+      user,
+      token,
+    },
+  });
+});
 exports.logIn = catchAsyn(async (req, res, next) => {
   const { email, password } = req.body;
   console.log(email, password);
@@ -62,6 +73,19 @@ exports.protectRoute = catchAsyn(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
+exports.restrict = (...roles) => {
+  return (req, res, next) => {
+    // roles ['admin', 'lead-guide']. role='user'
+
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new apiError("You do not have permission to perform this action", 403)
+      );
+    }
+
+    next();
+  };
+};
 exports.forgotPassword = catchAsyn(async (req, res, next) => {
   const email = req.body.email;
   const user = await userModel.findOne({ email });
