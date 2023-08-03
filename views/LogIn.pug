@@ -31,7 +31,11 @@ head
             </div>
         .signup
             | Don&apos;t have account?
-            a(href='Sign Up.html') Register Now
+            a(href='/register') Register Now
+             br 
+             br     
+            a(href='/home') Back to Home
+       
 script.
     const pass_field = document.querySelector(".pass-key");
     const showBtn = document.querySelector(".show");

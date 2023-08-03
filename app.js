@@ -17,10 +17,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Routers
-app.use("api/v1/product", productRouter);
-app.use("api/v1/product/category", cataRouter);
-app.use("api/v1/user", userRouter);
-app.use("/home", viewRouter);
+app.use("/", viewRouter);
+app.use("/api/v1/product", productRouter);
+app.use("/api/v1/product/category", cataRouter);
+app.use("/api/v1/user", userRouter);
+
 app.all("*", (req, res, next) => {
   next(new apiError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

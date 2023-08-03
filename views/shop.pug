@@ -8,23 +8,8 @@ head
     script(src='https://code.jquery.com/jquery-3.4.1.js')
     script(src='https://kit.fontawesome.com/a076d05399.js')
     title Shop
-header.head
-    .flex
-        h1 Clothing Store
-        .search
-            input(type='text' placeholder='Search . . .' required='')
-    nav
-        ul
-            li
-                a(href='index.html') Home
-            li
-                a.active(href='shop.html') Shop
-            li
-                a(href='#') Cart
-            li
-                a(href='#') About
-            li
-                a(href='#') Contact
+//header
+include _header
 .btn
     span#myButton.fas.fa-bars
         // <button>Click to Resize</button>
@@ -88,30 +73,17 @@ header.head
 h2 All Clothing
 section#myElement.products
     .wrapper
-        figure
-            .hover-animation
-                img.img-back(src='img/e7a25f307f5fe25680a91665645fe6da.jpg' alt='')
-                img.img-front(src='img/collection.jpg' alt='')
-            figcaption
-                h3 Product 1
-                p $49.99
-                a(href='#') Add to Cart
-        figure
-            .hover-animation
-                img.img-back(src='img/body.jpg' alt='')
-                img.img-front(src='img/pngtree-multi-toned-clothing-on-hangers-picture-image_2479380.jpg' alt='')
-            figcaption
-                h3 Product 1
-                p $49.99
-                a(href='#') Add to Cart
-        figure
-            .hover-animation
-                img.img-back(src='img/body.jpg' alt='')
-                img.img-front(src='img/pngtree-multi-toned-clothing-on-hangers-picture-image_2479380.jpg' alt='')
-            figcaption
-                h3 Product 1
-                p $49.99
-                a(href='#') Add to Cart
+        each product in products   
+            if product.category ==="men's clothing"  || product.category ==="women's clothing" || product.category ==="jewelery"
+                figure
+                    .hover-animation
+                        img.img-back(src=`${product.image}` alt='')
+                        img.img-front(src=`${product.image}` alt='')
+                    figcaption
+                        h3 #{product.title}
+                        p #{product.price}
+                        a(href='#') Add to Cart
+       
 footer
     p &copy; 2023 Clothing Store. All rights reserved.
 script.

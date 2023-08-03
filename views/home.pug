@@ -23,61 +23,20 @@ section.products
     h2 Best Sellers
     section.slider
         ul#lightSlider
-            li.item-a
-                .box
-                    .slide-img
-                        img(src='img/body.jpg' alt='')
-                        .overlay
-                            a.buy-btn(href='#') Buy Now
-                    .detail-box
-                        .type
-                            a(href='#') Product 1
-                            span qweqwe
-                        a.price(href='#') 23
-            li.item-b
-                .box
-                    .slide-img
-                        img(src='img/body.jpg' alt='')
-                        .overlay
-                            a.buy-btn(href='#') Buy Now
-                    .detail-box
-                        .type
-                            a(href='#') Product 1
-                            span qweqwe
-                        a.price(href='#') 23
-            li.item-c
-                .box
-                    .slide-img
-                        img(src='img/body.jpg' alt='')
-                        .overlay
-                            a.buy-btn(href='#') Buy Now
-                    .detail-box
-                        .type
-                            a(href='#') Product 1
-                            span qweqwe
-                        a.price(href='#') 23
-            li.item-d
-                .box
-                    .slide-img
-                        img(src='img/body.jpg' alt='')
-                        .overlay
-                            a.buy-btn(href='#') Buy Now
-                    .detail-box
-                        .type
-                            a(href='#') Product 1
-                            span qweqwe
-                        a.price(href='#') 23
-            li.item-e
-                .box
-                    .slide-img
-                        img(src='img/body.jpg' alt='')
-                        .overlay
-                            a.buy-btn(href='#') Buy Now
-                    .detail-box
-                        .type
-                            a(href='#') Product 1
-                            span qweqwe
-                        a.price(href='#') 23
+            each product in products
+                if product.bestSeller === "yes" 
+                    li.item-a
+                        .box
+                            .slide-img
+                                img(src=`${product.image}` alt='')
+                                .overlay
+                                    a.buy-btn(href='#') Buy Now
+                            .detail-box
+                                .type
+                                    a(href='#') #{product.title}
+                                    span #{product.category}
+                                a.price(href='#') #{product.price}
+           
 section.about
     .img-about
         img(src='https://www.highsnobiety.com/static-assets/thumbor/4bW6iFabL1KNxEzgSniFj97GNzY=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2021/04/16162418/how-to-care-for-clothes-02.jpg' alt='')

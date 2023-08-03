@@ -4,13 +4,28 @@ const catchAsyn = require("./../util/catchAsync");
 const apiError = require("./../util/error");
 
 exports.homePage = catchAsyn(async (req, res, next) => {
-  const product = await productModel.find();
-  if (!product) {
-    return next(new apiError("there is no products at the moment"));
-  }
+  const products = await productModel.find();
 
   res.status(200).render("home", {
     title: "Clothin",
-    product,
+    products,
+  });
+});
+exports.shopPage = catchAsyn(async (req, res, next) => {
+  const products = await productModel.find();
+
+  res.status(200).render("shop", {
+    title: "Clothin",
+    products,
+  });
+});
+exports.loginPage = catchAsyn(async (req, res, next) => {
+  res.status(200).render("LogIn", {
+    title: "Clothin",
+  });
+});
+exports.registerPage = catchAsyn(async (req, res, next) => {
+  res.status(200).render("register", {
+    title: "Clothin",
   });
 });

@@ -41,6 +41,7 @@ const userSchema = mongoose.Schema({
     number: { type: Number },
     zipcode: { type: String },
   },
+
   passwordResetToken: String,
   passwordResetExpires: Date,
 });
