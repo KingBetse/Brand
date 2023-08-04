@@ -23,17 +23,24 @@ mongoose
   });
 
 const importProduct = async () => {
-  fetch("https://fakestoreapi.com/users")
+  fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((json) => {
-      userModel.create(json);
+      prodModel.create(json);
       console.log("Data transfer Succesful");
     })
     .catch((err) => {
       console.log("fake :", err);
     });
 };
-
+const deleteP = async () => {
+  const done = await prodModel.deleteMany();
+  if (done) {
+    console.log("Deleting successful");
+  }
+};
 if (process.argv[2] === "--importProduct") {
   importProduct();
+} else if (process.argv[2] === "--deleteAll") {
+  deleteP();
 }

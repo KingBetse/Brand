@@ -1,0 +1,109 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/all.css')
+    link(rel='stylesheet' type='text/css' href='css/style.css')
+    link(rel='stylesheet' type='text/css' href='css/shop.css')
+    script(src='https://code.jquery.com/jquery-3.4.1.js')
+    script(src='https://kit.fontawesome.com/a076d05399.js')
+    title Shop
+//header
+include _header
+.btn
+    span#myButton.fas.fa-bars
+        // <button>Click to Resize</button>
+.bar
+    nav.sidebar
+        .text Filter
+        ul
+            li
+                a.feat-btn(href='#')
+                    | Product Type
+                    span.fas.fa-caret-down.first
+                .list
+                    ul.feat-show
+                        li
+                            input(type='checkbox' name='product1')
+                            |  product1
+                        li
+                            input(type='checkbox' name='product1')
+                            |  product1
+                        li
+                            input(type='checkbox' name='product1')
+                            |  product1
+                        li
+                            input(type='checkbox' name='product1')
+                            |  product1
+                        li
+                            input(type='checkbox' name='product1')
+                            |  product1
+            li
+                a.serv-btn(href='#')
+                    | Price
+                    span.fas.fa-caret-down.second
+                .list-price
+                    ul.serv-show
+                        li
+                            .price-input
+                                .field
+                                    input.input-min(type='number' value='1200')
+                                .field
+                                    input.input-max(type='number' value='3800')
+                            .slider
+                                .progress
+                            .range-input
+                                input.range-min(type='range' min='0' max='5000' value='1200' step='100')
+                                input.range-max(type='range' min='0' max='5000' value='3800' step='100')
+            li
+                a.size-btn(href='#')
+                    | Size
+                    span.fas.fa-caret-down.third
+                .list
+                    ul.size-show
+                        li
+                            input(type='checkbox' name='size1')
+                            |  Large
+                        li
+                            input(type='checkbox' name='size2')
+                            |  Medium
+                        li
+                            input(type='checkbox' name='size3')
+                            | Small
+h2 All Clothing
+section#myElement.products
+    .wrapper
+        each product in products   
+            if product.category ==="men's clothing"  || product.category ==="women's clothing" || product.category ==="jewelery"
+                figure
+                    .hover-animation
+                        img.img-back(src=`${product.image}` alt='')
+                        img.img-front(src=`${product.image}` alt='')
+                    figcaption
+                        h3 #{product.title}
+                        p #{product.price}
+                        a(href='#') Add to Cart
+       
+footer
+    p &copy; 2023 Clothing Store. All rights reserved.
+script.
+    $(".btn").click(function () {
+    $(this).toggleClass("click");
+    $(".sidebar").toggleClass("show");
+    });
+    $(".feat-btn").click(function () {
+    $("nav ul .feat-show").toggleClass("show");
+    $("nav ul .first").toggleClass("rotate");
+    });
+    $(".serv-btn").click(function () {
+    $("nav ul .serv-show").toggleClass("show1");
+    $("nav ul .second").toggleClass("rotate");
+    });
+    $(".size-btn").click(function () {
+    $("nav ul .size-show").toggleClass("show2");
+    $("nav ul .third").toggleClass("rotate");
+    });
+    $("nav ul li").click(function () {
+    $(this).addClass("active").siblings().removeClass("active");
+    });
+script(src='js/script.js')

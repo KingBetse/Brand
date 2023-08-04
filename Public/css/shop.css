@@ -6,8 +6,9 @@
 
 .products {
   color: rgb(13, 14, 14);
-  padding-bottom: 50px;
-  margin-top: 50px;
+  /* padding-bottom: 50px; */
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 100%;
   background: #f5f6fa;
 }
@@ -71,6 +72,9 @@ h2 {
   /* text-align: center; */
   background: #ffffff;
   letter-spacing: 1px;
+}
+.bar {
+  position: fixed;
 }
 .bar nav ul {
   background: #ffffff;
@@ -194,6 +198,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .price-input .separator {
   width: 130px;
   display: flex;
+
   font-size: 19px;
   align-items: center;
   justify-content: center;
@@ -277,20 +282,30 @@ input[type="range"]::-moz-range-thumb {
 }
 .wrapper {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-self: center;
   gap: 20px;
+  flex-wrap: wrap;
   /* width: 1170px; */
   /* margin: 0 auto; */
   border: 2px solid rgb(245, 244, 246);
+  margin-left: 20px;
 }
 figure {
   width: 32%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
   /* float: left; */
-  /* border: 2px solid rebeccapurple; */
+  border: 2px solid #51a0aa;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   margin: 0;
+  border-radius: 10px;
 }
 figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   text-align: center;
 }
 figcaption h2 {
@@ -315,6 +330,9 @@ figcaption a {
 }
 .hover-animation {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 350px;
   width: 350px;
   margin: 10% auto 0;
@@ -324,9 +342,10 @@ figcaption a {
 
 .hover-animation img {
   position: absolute;
-  left: 0;
-  width: 350px;
-  height: 350px;
+
+  /* left: 0; */
+  max-width: 100%;
+  max-height: 100%;
   /* -webkit-transition: opacity 1s ease-in-out;
       -moz-transition: opacity 1s ease-in-out;
       -ms-transition: opacity 1s ease-in-out;
@@ -339,6 +358,6 @@ figcaption a {
 }
 
 #myElement {
-  margin-left: 0;
-  transition: margin-left 0.3s ease;
+  padding-left: 0px;
+  transition: padding-left 0.4s ease;
 }

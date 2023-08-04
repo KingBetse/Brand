@@ -1,0 +1,52 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Log In
+    link(rel='stylesheet' href='css/sign.css')
+    script(src='https://kit.fontawesome.com/a076d05399.js')
+.bg-img
+    .content
+        header Login Form
+        form(action='#')
+            .field
+                span.fa.fa-user
+                input(type='text' required='' placeholder='Email or Phone')
+            .field.space
+                span.fa.fa-lock
+                input.pass-key(type='password' required='' placeholder='Password')
+                span.show SHOW
+            .pass
+                a(href='#') Forgot Password?
+            .field
+                input(type='submit' value='LOGIN')
+        //
+            <div class="login">Or login with</div>
+            <div class="links">
+            <div class="facebook">
+            <i class="fab fa-facebook-f"><span>Facebook</span></i>
+            </div>
+            <div class="instagram">
+            <i class="fab fa-instagram"><span>Instagram</span></i>
+            </div>
+            </div>
+        .signup
+            | Don&apos;t have account?
+            a(href='/register') Register Now
+             br 
+             br     
+            a(href='/home') Back to Home
+       
+script.
+    const pass_field = document.querySelector(".pass-key");
+    const showBtn = document.querySelector(".show");
+    showBtn.addEventListener("click", function () {
+    if (pass_field.type === "password") {
+    pass_field.type = "text";
+    showBtn.textContent = "HIDE";
+    showBtn.style.color = "#3498db";
+    } else {
+    pass_field.type = "password";
+    showBtn.textContent = "SHOW";
+    showBtn.style.color = "#222";
+    }
+    });

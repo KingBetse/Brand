@@ -1,0 +1,51 @@
+doctype html
+head
+    title Clothing Store
+    link(rel='stylesheet' type='text/css' href='css/style.css')
+    link(rel='stylesheet' type='text/css' href='css/home.css')
+    link(type='text/css' rel='stylesheet' href='css/lightslider.css')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='js/lightslider.js')
+//header
+include _header
+main
+    section.home
+        .home-intro
+            h3
+                | Best in The City
+                span.text
+            h2 Sale Up to 50%
+            .btn-holder
+                a(href='#') Shop Now
+    .img-home
+        img(src='img/e7a25f307f5fe25680a91665645fe6da.png' alt='')
+section.products
+    h2 Best Sellers
+    section.slider
+        ul#lightSlider
+            each product in products
+                if product.bestSeller === "yes" 
+                    li.item-a
+                        .box
+                            .slide-img
+                                img(src=`${product.image}` alt='')
+                                .overlay
+                                    a.buy-btn(href='#') Buy Now
+                            .detail-box
+                                .type
+                                    a(href='#') #{product.title}
+                                    span #{product.category}
+                                a.price(href='#') #{product.price}
+           
+section.about
+    .img-about
+        img(src='https://www.highsnobiety.com/static-assets/thumbor/4bW6iFabL1KNxEzgSniFj97GNzY=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2021/04/16162418/how-to-care-for-clothes-02.jpg' alt='')
+        .button
+            a(href='#') About Us
+footer
+    p &copy; 2023 Clothing Store. All rights reserved.
+script(src='script.js')
+script(type='text/javascript').
+    $(document).ready(function () {
+    $("#lightSlider").lightSlider();
+    });

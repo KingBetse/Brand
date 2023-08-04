@@ -39,14 +39,14 @@ rangeInput.forEach((input) => {
     }
   });
 });
-
+// for sidebar in shop
 var button = document.getElementById("myButton");
 var element = document.getElementById("myElement");
 var originalMargin = getComputedStyle(element).paddingLeft;
 
 button.addEventListener("click", function () {
   if (element.style.paddingLeft === originalMargin) {
-    element.style.paddingLeft = "350px";
+    element.style.paddingLeft = "330px";
   } else {
     element.style.paddingLeft = originalMargin;
   }

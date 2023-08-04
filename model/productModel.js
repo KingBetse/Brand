@@ -27,6 +27,10 @@ const productSchema = mongoose.Schema({
         "The Catagory must be men's clothing,women's clothing, electronics, jewelerys",
     },
   },
+  bestSeller: {
+    type: String,
+    default: "no",
+  },
 });
 const product = mongoose.model("product", productSchema);
 
