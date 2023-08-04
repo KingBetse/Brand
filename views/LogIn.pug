@@ -7,13 +7,13 @@ head
 .bg-img
     .content
         header Login Form
-        form(action='#')
+        form.form(action='#')
             .field
                 span.fa.fa-user
-                input(type='text' required='' placeholder='Email or Phone')
+                input#email(type='text' required='' placeholder='Email or Phone')
             .field.space
                 span.fa.fa-lock
-                input.pass-key(type='password' required='' placeholder='Password')
+                input#password.pass-key(type='password' required='' placeholder='Password')
                 span.show SHOW
             .pass
                 a(href='#') Forgot Password?
@@ -50,3 +50,6 @@ script.
     showBtn.style.color = "#222";
     }
     });
+
+script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js')
+script(src="js/login.js")

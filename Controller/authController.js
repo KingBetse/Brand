@@ -11,6 +11,19 @@ const signToken = (id) => {
     expiresIn: process.env.JWT_EXPIRES,
   });
 };
+
+// const createToken = (user, statusCode, res) => {
+//   const token = signToken(user._id);
+
+//   return res.status(statusCode).json({
+//     status: "success",
+//     data: {
+//       user,
+//       token,
+//     },
+//   });
+// };
+
 exports.signUp = catchAsyn(async (req, res, next) => {
   const user = await userModel.create({
     name: {
@@ -37,7 +50,7 @@ exports.signUp = catchAsyn(async (req, res, next) => {
 });
 exports.logIn = catchAsyn(async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(email, password);
+
   if (!email || !password) {
     return await res.status(404).json({
       status: "fail",
@@ -53,6 +66,14 @@ exports.logIn = catchAsyn(async (req, res, next) => {
     });
   }
   const token = signToken(user._id);
+  const cookieOption = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+    ),
+
+    httpOnly: true,
+  };
+  res.cookie("jwt", token, cookieOption);
   return await res.status(200).json({
     status: "success",
     message: "we did it bruh",
@@ -68,6 +89,8 @@ exports.protectRoute = catchAsyn(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
 
   if (!token) {
