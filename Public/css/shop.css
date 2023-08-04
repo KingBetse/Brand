@@ -6,8 +6,9 @@
 
 .products {
   color: rgb(13, 14, 14);
-  padding-bottom: 50px;
-  margin-top: 50px;
+  /* padding-bottom: 50px; */
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 100%;
   background: #f5f6fa;
 }
@@ -71,6 +72,9 @@ h2 {
   /* text-align: center; */
   background: #ffffff;
   letter-spacing: 1px;
+}
+.bar {
+  position: fixed;
 }
 .bar nav ul {
   background: #ffffff;
@@ -285,14 +289,16 @@ input[type="range"]::-moz-range-thumb {
   /* width: 1170px; */
   /* margin: 0 auto; */
   border: 2px solid rgb(245, 244, 246);
+  margin-left: 20px;
 }
 figure {
   width: 32%;
   display: flex;
   flex-direction: column;
-
+  background: #ffffff;
   /* float: left; */
-  border: 2px solid rebeccapurple;
+  border: 2px solid #51a0aa;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   margin: 0;
   border-radius: 10px;
 }
@@ -352,6 +358,6 @@ figcaption a {
 }
 
 #myElement {
-  margin-left: 0;
-  transition: margin-left 0.3s ease-in-out;
+  padding-left: 0px;
+  transition: padding-left 0.4s ease;
 }
