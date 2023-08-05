@@ -7,23 +7,23 @@ head
 .bg-img
     .content
         header Register Form
-        form(action='#')
+        form.form(action='#')
             .field
                 span.fa.fa-user
-                input(type='text' required='' placeholder='First Name')
+                input#firstname(type='text' required='' placeholder='First Name')
             .field
                 span.fa.fa-user
-                input(type='text' required='' placeholder='Last Name')
+                input#lastname(type='text' required='' placeholder='Last Name')
             .field
                 span.fa.fa-user
-                input(type='text' required='' placeholder='Email')
+                input#email(type='text' required='' placeholder='Email')
             .field.space
                 span.fa.fa-lock
-                input.pass-key(type='password' required='' placeholder='Password')
+                input#password.pass-key(type='password' required='' placeholder='Password')
                 span.show SHOW
             .field
                 span.fa.fa-user
-                input(type='text' required='' placeholder='Address')
+                input#address(type='text' required='' placeholder='Address')
             .pass
                 a(href='#') Forgot Password?
             .field
@@ -58,3 +58,5 @@ script.
     showBtn.style.color = "#222";
     }
     });
+script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js")
+script(src="js/register.js")

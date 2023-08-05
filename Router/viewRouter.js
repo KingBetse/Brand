@@ -1,7 +1,10 @@
 const express = require("express");
 
 const viewController = require("./../Controller/viewController");
+const authController = require("./../Controller/authController");
 const Router = express.Router();
+
+Router.use(authController.isLogedIn);
 
 Router.get("/home", viewController.homePage);
 Router.get("/shop", viewController.shopPage);

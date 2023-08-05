@@ -1,3 +1,5 @@
+// import axios from "axios";
+// import axios from "axios";
 const login = async (email, password) => {
   try {
     const res = await axios({
@@ -8,9 +10,14 @@ const login = async (email, password) => {
         password,
       },
     });
-    console.log(res);
+
+    if (res.data.status === "success") {
+      window.setTimeout(() => {
+        location.assign("/home");
+      });
+    }
   } catch (err) {
-    console.log(err.response.data);
+    alert(err.response.data.message);
   }
 };
 document.querySelector(".form").addEventListener("submit", (e) => {

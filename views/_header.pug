@@ -16,8 +16,15 @@ header.head
                 a(href='#') About
             li
                 a(href='#') Contact
-        ul.sign
-            li
-                a(href='/register') Sign Up
-            li
-                a(href='/login') Log In
+        if user 
+            ul.sign
+                
+                span=user.name.firstname
+                li
+                    a(href='#') Log Out
+        else 
+            ul.sign
+                li
+                    a(href='/register') Sign Up
+                li
+                    a(href='/login') Log In

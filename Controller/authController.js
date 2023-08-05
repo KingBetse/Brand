@@ -39,7 +39,15 @@ exports.signUp = catchAsyn(async (req, res, next) => {
   });
   if (user) {
     const token = signToken(user._id);
-    res.status(200).json({
+    const cookieOption = {
+      expires: new Date(
+        Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+      ),
+
+      httpOnly: true,
+    };
+    res.cookie("jwt", token, cookieOption);
+    return await res.status(200).json({
       status: "success",
       data: {
         user,
@@ -80,7 +88,26 @@ exports.logIn = catchAsyn(async (req, res, next) => {
     token,
   });
 });
+exports.isLogedIn = catchAsyn(async (req, res, next) => {
+  let token;
+  if (req.cookies.jwt) {
+    token = req.cookies.jwt;
 
+    if (!token) {
+      next();
+    }
+
+    const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+    const currentUser = await userModel.findById(decode.id);
+    if (!currentUser) {
+      return next();
+    }
+
+    res.locals.user = currentUser;
+  }
+  next();
+});
 exports.protectRoute = catchAsyn(async (req, res, next) => {
   //1
   let token;
