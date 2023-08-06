@@ -34,3 +34,8 @@ exports.updateUserPage = catchAsyn(async (req, res, next) => {
     title: "Clothin",
   });
 });
+exports.logOutPage = catchAsyn(async (req, res, next) => {
+  res.status(200).render("logout", {
+    title: "Clothin",
+  });
+});

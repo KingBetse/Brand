@@ -12,7 +12,7 @@ const updateME = async (firstname, lastname, email, city) => {
       alert(res.data.message);
       window.setTimeout(() => {
         location.assign("/home");
-      }, 1500);
+      }, 500);
     }
   } catch (err) {
     alert(err.response.data.message);

@@ -11,5 +11,6 @@ Router.get("/shop", viewController.shopPage);
 Router.get("/login", viewController.loginPage);
 Router.get("/register", viewController.registerPage);
 Router.get("/updateMe", viewController.updateUserPage);
+Router.get("/logout", viewController.logOutPage);
 
 module.exports = Router;

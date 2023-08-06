@@ -148,6 +148,17 @@ exports.restrict = (...roles) => {
     next();
   };
 };
+exports.logOut = catchAsyn(async (req, res, next) => {
+  if (req.cookies.jwt) {
+    res.clearCookie("jwt");
+
+    return await res.status(200).json({
+      status: "success",
+      message: "logout complete",
+    });
+  }
+  next();
+});
 exports.forgotPassword = catchAsyn(async (req, res, next) => {
   const email = req.body.email;
   const user = await userModel.findOne({ email });

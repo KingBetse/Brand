@@ -8,6 +8,7 @@ Router.post("/signup", authController.signUp);
 Router.post("/signin", authController.logIn);
 Router.patch("/resetPassword/:token", authController.resetPassword);
 Router.post("/forgotPassword", authController.forgotPassword);
+Router.get("/logout", authController.logOut);
 Router.route("/")
   .get(
     // authController.protectRoute,
