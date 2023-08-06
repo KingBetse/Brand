@@ -1,0 +1,36 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Update Me
+    link(rel='stylesheet' href='css/sign.css')
+    script(src='https://kit.fontawesome.com/a076d05399.js')
+.bg-img
+    .content
+        header Update Your Account
+        form.form(action='#')
+            .field
+                span.fa.fa-user
+                input#firstname(type='text' required='' placeholder='First Name' value=`${user.name.firstname}`)
+            .field
+                span.fa.fa-user
+                input#lastname(type='text' required='' placeholder='Last Name' value=`${user.name.lastname}`)
+            .field
+                span.fa.fa-user
+                input#email(type='text' required='' placeholder='Email' value=`${user.email}`)
+           
+            .field
+                span.fa.fa-user
+                input#address(type='text' required='' placeholder='Address' value=`${user.address.city}`)
+            br 
+            br     
+            .field
+                input(type='submit' value='Update')
+            .signup
+                br 
+                br     
+                a(href='/home') Back to Home
+
+
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js")
+script(src="js/updateUser.js")

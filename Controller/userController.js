@@ -1,6 +1,8 @@
 const userModel = require("./../model/userModel");
 const catchAsyn = require("./../util/catchAsync");
 const apiError = require("./../util/error");
+const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
 
 exports.showAllUsers = catchAsyn(async (req, res, next) => {
   const user = await userModel.find();
@@ -47,13 +49,22 @@ exports.updateUser = catchAsyn(async (req, res, next) => {
       )
     );
   }
-  const user = await userModel.findByIdAndUpdate(req.params.id, req.body, {
+  const token = req.cookies.jwt;
+  console.log(req.cookies.jwt);
+  if (!token) {
+    return next(
+      new apiError("you have no right to update pls login again.", 404)
+    );
+  }
+  const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  const user = await userModel.findByIdAndUpdate(decode.id, req.body, {
     new: true,
     runValidators: true,
   });
   res.status(200).json({
     status: "succsesful",
-    data: "update succesful",
+    message: "update succesful",
     user,
   });
   next();

@@ -18,8 +18,9 @@ header.head
                 a(href='#') Contact
         if user 
             ul.sign
-                
-                span=user.name.firstname
+                li 
+                    a(href='/updateMe')
+                        span=user.name.firstname
                 li
                     a(href='#') Log Out
         else 

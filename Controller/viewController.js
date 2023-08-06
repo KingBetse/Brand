@@ -29,3 +29,8 @@ exports.registerPage = catchAsyn(async (req, res, next) => {
     title: "Clothin",
   });
 });
+exports.updateUserPage = catchAsyn(async (req, res, next) => {
+  res.status(200).render("updateMe", {
+    title: "Clothin",
+  });
+});

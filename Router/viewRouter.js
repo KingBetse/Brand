@@ -10,5 +10,6 @@ Router.get("/home", viewController.homePage);
 Router.get("/shop", viewController.shopPage);
 Router.get("/login", viewController.loginPage);
 Router.get("/register", viewController.registerPage);
+Router.get("/updateMe", viewController.updateUserPage);
 
 module.exports = Router;

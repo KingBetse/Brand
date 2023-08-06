@@ -14,10 +14,11 @@ Router.route("/")
     // authController.restrict("admin"),
     userController.showAllUsers
   )
-  .post(userController.newUser);
+
+  .post(userController.newUser)
+  .patch(authController.protectRoute, userController.updateUser);
 Router.route("/:id")
   .get(authController.protectRoute, userController.getOne)
-  .patch(authController.protectRoute, userController.updateUser)
   .delete(
     // authController.protectRoute,
     userController.deleteOne
